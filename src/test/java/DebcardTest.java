@@ -14,7 +14,7 @@ class DebcardTest {
     private WebDriver driver;
     @BeforeAll
     static void setUpAll() {
-// убедитесь, что файл chromedriver.exe расположен именно в каталоге C:\tmp
+
         WebDriverManager.chromedriver().setup();
 
     }
@@ -42,9 +42,5 @@ class DebcardTest {
         String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         assertEquals(expected,actual);
 
-        try {
-            Thread.currentThread().sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
     }}
