@@ -19,12 +19,12 @@ class DebcardTest {
 
     }
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
-
-
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
-
     }
     @AfterEach
     void tearDown() {
@@ -32,7 +32,7 @@ class DebcardTest {
         driver = null;
     }
     @Test
-    void FillingOutTheForm() {
+    void fillingOutTheForm() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78005553535");
